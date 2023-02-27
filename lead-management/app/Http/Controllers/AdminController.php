@@ -63,5 +63,29 @@ class AdminController extends Controller
         return view('admin.leads.edit_lead',compact('lead'));
     }
 
+    //edit_lead_confirm
+    public function edit_lead_confirm(Request $request,$id)
+    {
+        $lead=lead::find($id);
+        $lead->first_name=$request->first_name;
+        $lead->last_name=$request->last_name;
+        $lead->phone=$request->phone;
+        $lead->title=$request->title;
+        $lead->email=$request->email;
+        $lead->company=$request->company;
+        $lead->street=$request->street;
+        $lead->city=$request->city;
+        $lead->state=$request->state;
+        $lead->zip_code=$request->zip_code;
+        $lead->country=$request->country;
+        $lead->description=$request->description;
+
+        $lead->lead_source=$request->lead_source;
+        $lead->lead_status=$request->lead_status;
+        
+        $lead->save();
+
+        return redirect()->back()->with('message', 'Lead updated Successfully');
+    }
 
 }

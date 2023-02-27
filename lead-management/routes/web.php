@@ -35,4 +35,4 @@ Route::post('/add_lead', [AdminController::class, 'add_lead']);
 Route::get('/manage_leads', [AdminController::class, 'manage_leads']);
 Route::get('/delete_lead/{id}', [AdminController::class, 'delete_lead']);
 Route::get('/edit_lead/{id}', [AdminController::class, 'edit_lead']);
-
+Route::post('/edit_lead_confirm/{id}', [AdminController::class, 'edit_lead_confirm']);
